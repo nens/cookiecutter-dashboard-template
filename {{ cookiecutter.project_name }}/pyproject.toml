@@ -4,7 +4,6 @@ version = "0.1"
 requires-python = ">= 3.11, <3.13"
 # 3.13 is ok after fix to https://github.com/pydantic/pydantic-extra-types/issues/239
 dependencies = [
-    "prefect=={{ cookiecutter.prefect_version }}.*",
     "pre-commit",
     "pytest>=8.3.4",
 ]
@@ -23,6 +22,3 @@ release = false
 venvPath = "."
 venv = ".venv"
 include = "src"
-
-[tool.prefect]
-home = "~/.prefect{{ cookiecutter.prefect_version }}"

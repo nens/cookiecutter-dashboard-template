@@ -1,4 +1,4 @@
-# {{ cookiecutter.project_name }} prefect task
+# {{ cookiecutter.project_name }} dashboard
 
 ## Post-generation checklist
 
@@ -8,7 +8,7 @@ First a little bit of github administration:
 - [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one who can work on it.
 - [ ] On that same page, add the team "nelen-schuurmans-pull-only" with **read** access. Otherwise the server cannot download the docker image.
 
-If you're working on other prefect tasks, you probably have these two installed already:
+If you're working on other dashboards, you probably have these two installed already:
 
 - [ ] Use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
 - [ ] Run `uv sync`.
@@ -34,25 +34,19 @@ Some `uv` commands:
 
     $ uv sync  # Sets up the .venv and does the "pip install"
     $ uv add your-dependency  # If you need numpy or so; replaces requirements.txt
-    $ uv run prefect server start  # "uv run" automatically runs in your .venv
-    $ uv run src/flows.py
+    $ uv run TODO  # "uv run" automatically runs in your .venv
     $ uv sync --upgrade  # Allow upgrades to versions.
 
 Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks
 in `tasks.py`. Feel free to add new folders or files in the `src` folder. Create a
 deployment in `python src/server.py`.
 
-There are test instructions in `flows.py` and `tasks.py`. Running `flows.py` will start a temporary prefect server and run whatever tasks you call in the `__main__`:
-
-    $ uv run src/flows.py
-
 
 ## Handy vscode setup: all ready for use
 
-- If you use vscode and did the `uv sync` thingy above, the python plugin will detect your code and prefect. So you'll have proper code completion! And type hints become more useful. (**Note**: you should have called `uv sync` first, before starting vscode, otherwise you have to select the python version manually: `.venv/bin/python` or so).
+- If you use vscode and did the `uv sync` thingy above, the python plugin will detect your code and streamlit. So you'll have proper code completion! And type hints become more useful. (**Note**: you should have called `uv sync` first, before starting vscode, otherwise you have to select the python version manually: `.venv/bin/python` or so).
 - Vscode will **recommend** "python", "editorconfig" and "ruff" extensions: install them. Vscode will ask about trusting "editorconfig" and "astral software": yes, that's okay. - Editorconfig handles unneeded spaces at the end of lines and other minutia.
 - Ruff formats your code and sorts the imports whenever you save a file. It will also warn about unknown variables or unused imports and offer fixes.
-- The "run and debug" button in the activity bar runs `src/flows.py` against localhost:4200 if you select "{{ cookiecutter.__debug_action_name }}" in the dropdown. See the instructions in `src/flows.py` on how to use it.
 
 Nice, easy, modern development with mostly-automatic formatting and neatness!
 
@@ -70,4 +64,4 @@ Should the github action fail on the docker image creation, try that one out loc
 
     $ docker build .
 
-Initially, ask Martijn, Sven or Reinout to add your new deployment to the [prefect-setup repo](https://github.com/nens/prefect-setup/blob/main/docker-compose.task.yml)_.
+Ask Reinout to add your new dashboard to the [dash-dashboards repo](https://github.com/nens/dash-dashboards).

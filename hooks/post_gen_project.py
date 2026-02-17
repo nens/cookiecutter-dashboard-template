@@ -15,7 +15,7 @@ def print_instructions(
         f"name={project_name}",
         "owner=nens",
         "visibility=private",
-        f"description=Prefect+tasks+for+{project_number}",
+        f"description=Dashboard+for+{project_number}",
     ]
     creation_url = base_url + "&".join(arguments)
     print("")

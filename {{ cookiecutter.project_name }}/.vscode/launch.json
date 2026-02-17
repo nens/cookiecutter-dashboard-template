@@ -5,12 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "{{ cookiecutter.__debug_action_name }}",
+      "name": "Run dashboard with debugger",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/src/flows.py",
+      "program": "${workspaceFolder}/src/TODO.py",
       "console": "internalConsole",
-      "env": {"PREFECT_API_URL": "http://localhost:4200/api"}
+      "env": {"PREFECT_API_URL": "http://localhost:4200/apiTODO"}
     }
   ]
 }

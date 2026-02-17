@@ -7,9 +7,8 @@ import pytest
 from cookiecutter.main import cookiecutter
 
 TEST_CONTENTS = {
-    "project_name": "prefect-my-example",
+    "project_name": "my-example-dashboard",
     "project_number": "R1972",
-    "prefect_version": "3",
 }
 
 
@@ -27,14 +26,14 @@ def test_function_prefix(tmp_path: Path):
         template=".",
         output_dir=str(tmp_path),
         extra_context={
-            "project_name": "prefect-nens-customer",
+            "project_name": "nens-customer-dashboard",
             "project_number": "R1972",
-            "prefect_version": "3",
         },
         no_input=True,
     )
-    generated_flows_py = tmp_path / "prefect-nens-customer/src/flows.py"
-    # We prefix everything with our project name, but want to omit the prefect part.
+    generated_flows_py = tmp_path / "nens-customer-dashboard/src/flows.py"
+    # We prefix everything with our project name, but want to omit the '-dashboard'
+    # part.
     print(generated_flows_py.read_text())  # For easier debugging
     assert "def nens_customer_flow" in generated_flows_py.read_text()
 
@@ -48,7 +47,7 @@ def test_generated_project_ruff(tmp_path: Path):
         extra_context=TEST_CONTENTS,
         no_input=True,
     )
-    with chdir(tmp_path / "prefect-my-example"):
+    with chdir(tmp_path / "my-example-dashboard"):
         run([sys.executable, "-m", "ruff", "format"], check=True)
 
 
@@ -61,7 +60,7 @@ def test_generated_project_precommit(tmp_path: Path):
         extra_context=TEST_CONTENTS,
         no_input=True,
     )
-    with chdir(tmp_path / "prefect-my-example"):
+    with chdir(tmp_path / "my-example-dashboard"):
         run(["git", "init"], check=True)
         run(["git", "add", "-A"], check=True)
         run([sys.executable, "-m", "pre_commit", "run", "--all"], check=True)
@@ -76,5 +75,5 @@ def test_generated_project_install(tmp_path: Path):
         extra_context=TEST_CONTENTS,
         no_input=True,
     )
-    with chdir(tmp_path / "prefect-my-example"):
+    with chdir(tmp_path / "my-example-dashboard"):
         run(["uv", "sync"], check=True)
