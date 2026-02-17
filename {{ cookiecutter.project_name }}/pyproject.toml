@@ -5,6 +5,9 @@ name = "{{ cookiecutter.project_name }}"
 version = "0.1"
 requires-python = "==3.14.*"  # Keep in sync with the Dockerfile
 dependencies = [
+    "pandas>=2.3.3",
+    "streamlit>=1.54.0",
+    "watchdog>=6.0.0",
 ]
 
 [tool.ruff]
@@ -23,4 +26,6 @@ venv = ".venv"
 include = "."
 
 [dependency-groups]
-dev = []
+dev = [
+    "prek>=0.3.3",
+]
