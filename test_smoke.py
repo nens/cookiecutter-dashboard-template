@@ -1,7 +1,7 @@
 import sys
 from contextlib import chdir
 from pathlib import Path
-from subprocess import run, CalledProcessError
+from subprocess import CalledProcessError, run
 
 import pytest
 from cookiecutter.main import cookiecutter

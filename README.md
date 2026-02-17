@@ -13,9 +13,9 @@ You need to install the cookiecutter program with pip (or pipx). Then you can ca
 It will ask for a project name:
 
 - Lowercase only, please.
-- Start with `dashboard-`.
+- End with `-dashboard`.
 - Dashes, no underscores.
-- So something like `dashboard-flater-beer-level`.
+- So something like `flater-beer-level-dashboard`.
 
 Create a new repo on github **with exactly the same name**. Make it an empty repo, so don't let github generate a license or readme. If you do generate a readme, you'll have to copy over generated files by hand and you'll probably forget the hidden `.github/` files and so, so don't do that :-)
 
@@ -27,5 +27,5 @@ Instructions for the paragraph above will be printed after generating the projec
 The regular:
 
     $ uv sync
-    $ uv run test
+    $ uv run pytest
     $ pre-commit run --all
