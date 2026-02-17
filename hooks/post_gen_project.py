@@ -54,6 +54,9 @@ def print_instructions(
     print("")
     print(readme_url)
     print("")
+    print("You can also read the readme by starting streamlit right away :-)")
+    print("")
+    print("uv run streamlit run dashboard.py")
 
 
 if __name__ == "__main__":
