@@ -1,0 +1,32 @@
+[project]
+name = "cookiecutter-prefect-template"
+version = "0.1-dev0"
+dependencies = [
+    "cookiecutter>=2.6.0",
+]
+requires-python = ">= 3.11"
+
+[tool.ruff]
+target-version = "py310"
+extend-exclude = ["*cookiecutter.project_name*"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.zest-releaser]
+release = false
+
+[tool.pytest.ini_options]
+# Only look hardcoded at our own files, not in the cookiecutter ones.
+python_files = ["test_hooks.py", "test_smoke.py"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "ruff>=0.9.6",
+]
