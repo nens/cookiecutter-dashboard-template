@@ -1,0 +1,9 @@
+# Only used for local checks in development.
+services:
+
+  web:
+    build: .
+    ports:
+      - 8501:8501
+    volumes:
+      - .:/app
