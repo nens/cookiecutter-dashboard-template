@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-dashboard-template"
-version = "0.1-dev0"
+version = "0.1"
 dependencies = [
     "cookiecutter>=2.6.0",
 ]
