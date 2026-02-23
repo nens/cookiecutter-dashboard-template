@@ -4,6 +4,9 @@ LABEL project_name="{{ cookiecutter.project_name }}"
 
 # Install python stuff with uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+ENV UV_LINK_MODE=copy \
+    UV_PYTHON_DOWNLOADS=never \
+    UV_PROJECT_ENVIRONMENT=/venv
 COPY pyproject.toml uv.lock ./
 RUN uv sync
 # Add the virtualenv to the path so that calling "streamlit" just works.
