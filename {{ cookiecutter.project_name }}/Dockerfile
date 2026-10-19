@@ -10,7 +10,7 @@ ENV UV_LINK_MODE=copy \
 COPY pyproject.toml uv.lock ./
 RUN uv sync
 # Add the virtualenv to the path so that calling "streamlit" just works.
-ENV PATH="/code/.venv/bin:$PATH"
+ENV PATH="/venv/bin:$PATH"
 
 # Copy the rest of our code. Contents mentioned in .dockerignore are ignored.
 COPY . .
